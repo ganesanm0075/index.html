@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CODE CLUB | CONTACT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e1014;
+      color: #f0f2f5;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0c0f1a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 600;
+      color: #00d4ff;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d4ff;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #4B0082, #8B0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 10px rgba(75, 0, 130, 0.5),
+                   0 0 20px rgba(139, 0, 0, 0.4);
+      animation: fadeInUp 2s ease-out;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: #aab4c0;
+      line-height: 1.6;
+      animation: fadeInUp 2.5s ease-out;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00d4ff 0%, #0077ff 80%);
+      animation: pulse 1.8s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3),
+                  0 0 20px rgba(0, 119, 255, 0.2);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    }
+
+    .cursor-dot.hover {
+      transform: translate(-50%, -50%) scale(1.4);
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.6),
+                  0 0 36px rgba(0, 119, 255, 0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>CODE CLUB</h2>
+    <nav>
+      <a href="1CODECLUBorg.html">HOME</a>
+      <a href="">EVENTS</a>
+<a href="">CHAT</a>
+      <a href="contact_page.html">CONTACT</a>
+      <a href="about_page.html">ABOUT</a>
+      
+
+
+
+      &nbsp;
+      <a href="">blank</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h1>CONTACT</h1>
+    <p>
+      Welcome to MySite — a digital portfolio built to showcase creativity, precision, and modern web aesthetics. Our mission is to craft elegant user experiences through clean, interactive designs that leave a lasting impression.
+    </p>
+  </main>
+
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <script>
+    const cursor = document.getElementById("cursor-dot");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    });
+
+    const hoverElements = document.querySelectorAll("a, button");
+    hoverElements.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("hover");
+      });
+    });
+
+    document.addEventListener("mousedown", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(0.85)";
+    });
+
+    document.addEventListener("mouseup", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CODE club</title>
+
+    <style>
+    body {
+      cursor: none;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #ff5a9f;
+      color: #ffdcdc;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: rgba(171, 0, 177, 0.9); /* Aqua green color */
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, background-color 0.2s ease;
+      box-shadow: 0 0 12px rgba(165, 0, 137, 0.6);
+    }
+
+    .cursor-dot.hover {
+      transform: translate(-50%, -50%) scale(1.6);
+      background-color: rgb(225, 0, 255);
+      box-shadow: 0 0 16px rgba(247, 7, 187, 0.8);
+    }
+
+    a, button {
+      color: #001aff;
+      text-decoration: none;
+      margin: 20px;
+      display: inline-block;
+      font-size: 20px;
+      padding: 10px 20px;
+      
+      background: transparent;
+      transition: all 0.3s;
+      cursor: pointer; /* still allow click feedback */
+    }
+
+    a:hover, button:hover {
+      background: #ff0055;
+      color: #ffffff;
+    }
+  
+
+   
+        
+    
+    #bg-video{
+        
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .video-section{
+
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /*animation_logo_code*/
+
+    .logo{
+
+        position: absolute;
+        width: 120px;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%,0);
+        animation: moveToTopLeft 2s ease forwards;
+        z-index: 2;
+
+    }
+
+@keyframes moveToTopLeft{
+        
+        0%{top: -2;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        50%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,50%);
+        }
+        100%{top: 20px;
+            left: 20px;
+            transform: translate(0,0);
+        }
+    }
+
+
+
+    .logo2{
+
+        position: absolute;
+        width: 120px;
+        top: 50px;
+        right: 50%;
+        transform: translate(50%,0);
+        animation: moveToTopThenLeft 2s ease forwards;
+        z-index: 2;
+
+    }
+
+@keyframes moveToTopThenLeft{
+        
+        0%{top: -2;
+            right: 50%;
+            transform: translate(50%,0);
+        }
+        50%{
+            top: 50%;
+            right: 50%;
+            transform: translate(50%,50%);
+        }
+        100%{top: 20px;
+            right: 20px;
+            transform: translate(0,0)
+    }}
+
+
+    .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+     
+    
+
+
+
+
+
+    .contents{
+       
+        position: absolute;
+        top: 50%;
+        
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        color: rgb(255, 255, 255);
+        z-index: 1;
+        font-size: 2em;}
+
+        
+
+
+        
+
+
+   
+
+    .contents2 {
+      padding: 50px 20px;
+      text-align: center;
+
+      color: rgb(255, 251, 251);
+      background-color: #111;
+      
+    }
+
+    .whitecontents{
+
+        padding: 200px 20px;
+        
+        text-decoration-color: #111;
+        color: black;
+        background-color: rgb(255, 255, 255);
+        font: optional;
+
+    }
+
+    .redcontents{
+
+        padding: 150px 20px;
+        
+        
+        color: rgb(255, 232, 232);
+        background-color: rgb(235, 0, 0);
+        font: optional;
+
+    }
+
+
+    
+
+    
+    
+   
+    
+   
+
+       .content0{
+
+        position: absolute;
+        
+        top: 50px;
+        left: 15%;
+        transform: translate(0,0);
+        text-align: center;
+        color: #ffffff;
+        z-index: 3;
+        font: 2em;
+         animation: slideDown 2s ease-out forwards;
+
+
+     }
+
+
+    @keyframes slideDown {
+      0% {
+        top: -100px;
+        opacity: 0;
+      }
+      100% {
+        top: 50px;
+        opacity: 1;
+      }
+    }
+  
+
+  .logo-text {
+    font-family: 'Russo One', sans-serif;
+    font-size: 60px;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    display: inline-block;
+    background-color: black;
+  }
+  
+</style>
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    
+<div >
+    
+<div class="video-section">
+    
+    <img src="GCE_DPI_LOGO-removebg-preview.png" alt="logo" class="logo">
+
+
+    <img src="CODE_CLUB_LOGO_2-removebg-preview.png" alt="logo2" class="logo2">
+
+    
+    <div class="content0">
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+          
+        <h1>GOVERNMENT COLLEGE OF ENGINEERING, DHARMAPURI</h1>
+        <P>AFFILIATED TO ANNA UNIVARSITY, CHENNAI</P>
+        
+
+
+
+    </div>
+    
+    <div class="contents">
+        <h1>CODE CLUB</h1>
+        
+        <dr>COMMUNITY OF DEVOLEPERS AND ENGINEERS</dr>
+        
+        <br>
+
+        <a  href="link1.html" class="btn">RECENT UPDATES 
+</a>
+        
+
+    </div>
+    <!--backround video-->
+    <video autoplay loop muted id="bg-video">
+        <source src="Fashion_-_Solo_Leveling___AMV(360p).mp4" type="video/mp4">
+        </video>
+           
+       
+<div class="contents2">
+    <h3>WELCOME TO THE CODE CLUB</h3>
+    <a href="" class="btn">HOME</a> <a href="" class="btn">ABOUT US</a> <c href=""></c>
+    <a href="" class="btn">EVENTS</a> <a href="" class="btn">COMPETITION</a> <c href=""></c>
+    <a href="" class="btn">GALLERY</a> <a href="" class="btn">CONTACT US</a> <a href="" class="btn">FAQ</a>
+</div>
+
+
+<div class="whitecontents">
+
+    <h1>
+        RECENT EVENTS</h1>
+    <p>EVENTS</p>
+   <img src="sololeveling_image.jpg" alt="">
+</div>
+
+<div class="redcontents">
+    
+
+
+
+</div>
+</div>
+<div class="cursor-dot" id="cursor-dot"></div>
+
+  
+  <script>
+    const cursor = document.getElementById("cursor-dot");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+
+    // Add hover effect on links/buttons
+    const hoverElements = document.querySelectorAll("a, button");
+    hoverElements.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("hover");
+      });
+    });
+
+    // Optional: shrink on click
+    document.addEventListener("mousedown", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
+    });
+
+    document.addEventListener("mouseup", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+  </script>
+
+<!-- In your <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+<style>
+  .logo-text {
+    font-family: 'Russo One', sans-serif;
+    font-size: 60px;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    display: inline-block;
+    background-color: black;
+  }
+</style>
+
+<!-- In your body -->
+<div class="logo-text">RCA</div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

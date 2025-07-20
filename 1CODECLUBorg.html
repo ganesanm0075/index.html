@@ -1,0 +1,550 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODECLUB.ORG</title>
+
+
+
+
+
+  <style>
+    body {
+      cursor: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e1014; /* Dark charcoal */
+      color: #f0f2f5;
+      overflow-x: hidden;
+    }
+
+    /* Elegant Neon Cursor Dot */
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00d4ff 0%, #0077ff 80%);
+      animation: pulse 1.8s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3),
+                  0 0 20px rgba(0, 119, 255, 0.2);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    }
+
+    .cursor-dot.hover {
+      transform: translate(-50%, -50%) scale(1.4);
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.6),
+                  0 0 36px rgba(0, 119, 255, 0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    /* Buttons and Links – Frosted Glass with Sleek Colors */
+    a, button {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 28px;
+      margin: 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    a:hover, button:hover {
+      background: linear-gradient(135deg, rgba(0, 150, 255, 0.25), rgba(0, 200, 255, 0.2));
+      color: #ffffff;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 200, 255, 0.3),
+                  0 4px 8px rgba(0, 100, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    a:active, button:active {
+      transform: translateY(1px) scale(0.97);
+      box-shadow: 0 4px 10px rgb(255, 255, 255);
+    }
+
+    /* Page Layout */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px;
+    }
+
+   
+
+   </style>
+
+
+
+
+
+
+<style>
+
+
+
+
+    #bg-video{
+  animation: expandClip 4s ease-out forwards;
+  clip-path: circle(0% at 50% 0%);
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes expandClip {
+  0% {
+    clip-path: circle(5% at 50% 0%);
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+    .video-section{
+
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /*animation_logo_code*/
+
+    .logo{
+
+        position: absolute;
+        width: 120px;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%,0);
+        animation: moveToTopLeft 2s ease forwards;
+        z-index: 2;
+
+    }
+
+@keyframes moveToTopLeft{
+        
+        0%{top: -2;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        50%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,50%);
+        }
+        100%{top: 20px;
+            left: 20px;
+            transform: translate(0,0);
+        }
+    }
+
+
+
+    .logo2{
+
+        position: absolute;
+        width: 120px;
+        top: 50px;
+        right: 50%;
+        transform: translate(50%,0);
+        animation: moveToTopThenLeft 2s ease forwards;
+        z-index: 2;
+
+    }
+
+@keyframes moveToTopThenLeft{
+        
+        0%{top: -2;
+            right: 50%;
+            transform: translate(50%,0);
+        }
+        50%{
+            top: 50%;
+            right: 50%;
+            transform: translate(50%,50%);
+        }
+        100%{top: 20px;
+            right: 20px;
+            transform: translate(0,0)
+    }}
+
+
+    .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  
+  color: #53c0ff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+.content0{
+
+        position: absolute;
+        
+        top: 50px;
+        left: 15%;
+        transform: translate(0,0);
+        text-align: center;
+        color: #ffffff;
+        z-index: 3;
+    
+         animation: slideDown 2s ease-out forwards;
+
+
+     }
+
+
+    @keyframes slideDown {
+      0% {
+        top: -100px;
+        opacity: 0;
+      }
+      100% {
+        top: 50px;
+        opacity: 1;
+      }
+    }
+
+     .contents1{
+       
+        position: absolute;
+        top: 50%;
+         left: 50%;
+
+        text-align: center;
+        color: #ffffff;
+        z-index: 1;
+        font-size: 2em;
+      font-family: Arial, sans-serif;
+      
+      font-weight: bold;
+;
+      opacity: 0;
+      transform: translate(-50%,-50%);
+      
+      animation: fadeInUp 2.2s ease-out forwards;
+      
+     
+      }
+      @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translate(-50%,0%)
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%,-50%)
+
+        
+    }}
+
+   .contents2{
+     padding: 50px 20px;
+      text-align: center;
+      
+
+      color: rgb(255, 251, 251);
+      background-color: #0b0f1a;
+      animation: fadeInUp2 3s ease-out forwards;
+ 
+   }
+@keyframes fadeInUp2 {
+      0% {
+        opacity: 0;
+       
+      }
+      100% {
+        opacity: 1;
+       
+      }}
+
+ 
+
+ 
+
+
+ .whitecontents{
+
+        padding: 200px 20px;
+        
+        text-decoration-color: #111;
+        color: black;
+        background-color: rgb(255, 255, 255);
+        font: optional;
+        
+
+    }
+
+    .redcontents{
+
+        padding: 150px 20px;
+        
+        
+        color: rgb(255, 232, 232);
+        background-color: #0b0f1a;
+        font: optional;
+       
+
+    }
+     
+    
+ .white2contents{
+
+        padding: 150px 20px;
+        
+        top: 0%;
+        text-align: start;
+        text-transform: uppercase;
+        position: relative;
+        color:#0b0f1a;
+        background-color: rgb(255, 250, 250);
+        font: optional;
+       
+
+    }
+
+    .copyrightvontent{
+        padding: 25px;
+        background-color: #0b0f1a;
+    }
+  
+
+
+
+
+</style>
+
+</head>
+<body>
+
+
+
+
+<div class="video-section">
+    
+    <img src="GCE_DPI_LOGO-removebg-preview.png" alt="logo" class="logo">
+
+    <img src="CODE_CLUB_LOGO_2-removebg-preview.png" alt="logo2" class="logo2">
+
+    
+    <div class="content0">
+        
+          
+        <h1>GOVERNMENT COLLEGE OF ENGINEERING, DHARMAPURI</h1>
+        <P>AFFILIATED TO ANNA UNIVARSITY, CHENNAI</P>
+        
+    </div>
+     <div class="contents1">
+        <h1>CODE CLUB</h1>
+        
+        <dr>COMMUNITY OF DEVOLEPERS AND ENGINEERS</dr>
+        
+        <br>
+
+        <a  href="link1.html" class="btn">RECENT UPDATES</a>
+        
+     </div>
+    <div>
+    <video autoplay loop muted id="bg-video">
+        <source src="Fashion_-_Solo_Leveling___AMV(360p).mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+</div>
+
+<div class="contents2">
+    <h3>WELCOME TO THE CODE CLUB</h3>
+    <a href="" class="btn">HOME</a> 
+
+   
+    
+    <a href="" class="btn">EVENTS</a><a href="">CHAT</a>
+    <a href="" class="btn">GALLERY</a> <a href="contact_page.html" class="btn">CONTACT US</a> 
+     <a href="about_page.html" class="btn">ABOUT US</a>
+</div>
+
+    
+
+
+<div class="whitecontents">
+
+    <h1>
+        RECENT EVENTS</h1>
+    <p>EVENTS</p>
+   <img src="sololeveling_image.jpg" alt="">
+</div>
+
+<div class="redcontents">
+    <h1>CLUB</h1>
+    <p>QUICK LINKS
+Home
+Mandatory Disclosure
+GCE Dharmapuri Map
+Login
+Online Grievance Redressal - GCE DPI
+RTI</p>
+
+
+
+</div>
+   
+
+<div class="white2contents">
+    <H1>COLLEGE</H1>
+    <p>Contact info
+Government College of Engineering Chettikarai Dharmapuri, Tamilnadu 636 704 India Telephone: 9444565950 principalgcedpi@gmail.com</p>
+
+
+</div>
+
+<div class="copyrightvontent">
+    <p>© copyright</p>
+
+</div>
+   
+
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cursor-dot" id="cursor-dot"></div>
+
+<script>
+    const cursor = document.getElementById("cursor-dot");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    });
+
+    const hoverElements = document.querySelectorAll("a, button");
+    hoverElements.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("hover");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("hover");
+      });
+    });
+
+    document.addEventListener("mousedown", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(0.85)";
+    });
+
+    document.addEventListener("mouseup", () => {
+      cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+  </script>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
