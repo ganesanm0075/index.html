@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>25 Question Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 5px;
+    }
+    .report {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f7f7f7;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="user-info">
+    <h2>Enter Your Details</h2>
+    <label>Name: <input type="text" id="username"></label><br><br>
+    <label>Email: <input type="email" id="email"></label><br><br>
+    <button onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <div id="quiz-container" class="hidden">
+    <h2>Quiz</h2>
+    <form id="quiz-form"></form>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+  </div>
+
+  <div id="result-container" class="hidden">
+    <h2>Quiz Report</h2>
+    <div id="report"></div>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" },
+      { q: "Which planet is known as the Red Planet?", options: ["Earth", "Venus", "Mars", "Jupiter"], answer: "Mars" },
+      { q: "What is 2 + 2?", options: ["3", "4", "5", "6"], answer: "4" },
+      { q: "HTML stands for?", options: ["Hyper Text Markup Language", "Hot Mail", "How To Make Lasagna", "None"], answer: "Hyper Text Markup Language" },
+      { q: "CSS stands for?", options: ["Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets", "Creative Style Sheets"], answer: "Cascading Style Sheets" },
+      { q: "JavaScript is a ___ language.", options: ["Programming", "Markup", "Style", "None"], answer: "Programming" },
+      { q: "Which tag is used for inserting an image?", options: ["<img>", "<image>", "<pic>", "<src>"], answer: "<img>" },
+      { q: "What does CPU stand for?", options: ["Central Processing Unit", "Computer Personal Unit", "Central Processor Utility", "None"], answer: "Central Processing Unit" },
+      { q: "Which is not a programming language?", options: ["Python", "HTML", "Java", "C++"], answer: "HTML" },
+      { q: "Google Chrome is a?", options: ["Web Browser", "OS", "Programming Language", "App"], answer: "Web Browser" },
+      { q: "What is the boiling point of water?", options: ["100°C", "90°C", "50°C", "80°C"], answer: "100°C" },
+      { q: "Who discovered gravity?", options: ["Newton", "Einstein", "Tesla", "Edison"], answer: "Newton" },
+      { q: "Which is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" },
+      { q: "What is the capital of India?", options: ["Mumbai", "Delhi", "Kolkata", "Chennai"], answer: "Delhi" },
+      { q: "Sun rises in the?", options: ["East", "West", "North", "South"], answer: "East" },
+      { q: "Which is a backend language?", options: ["Python", "HTML", "CSS", "Bootstrap"], answer: "Python" },
+      { q: "RAM stands for?", options: ["Random Access Memory", "Run Around Memory", "Read Access Memory", "None"], answer: "Random Access Memory" },
+      { q: "Which language is used to style web pages?", options: ["HTML", "CSS", "JavaScript", "PHP"], answer: "CSS" },
+      { q: "Which of the following is a database?", options: ["MySQL", "Python", "Java", "HTML"], answer: "MySQL" },
+      { q: "To comment in HTML, you use?", options: ["<!-- comment -->", "// comment", "/* comment */", "# comment"], answer: "<!-- comment -->" },
+      { q: "What color is the sky on a clear day?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
+      { q: "Which is not an operating system?", options: ["Windows", "Linux", "MacOS", "Chrome"], answer: "Chrome" },
+      { q: "Which is a mammal?", options: ["Shark", "Dolphin", "Crocodile", "Octopus"], answer: "Dolphin" },
+      { q: "Which one is a search engine?", options: ["Google", "Facebook", "Instagram", "Twitter"], answer: "Google" },
+      { q: "Which year did WW2 end?", options: ["1945", "1940", "1939", "1950"], answer: "1945" }
+    ];
+
+    function startQuiz() {
+      const name = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!name || !email) {
+        alert("Please enter both name and email.");
+        return;
+      }
+
+      document.getElementById('user-info').classList.add('hidden');
+      document.getElementById('quiz-container').classList.remove('hidden');
+
+      const quizForm = document.getElementById('quiz-form');
+      questions.forEach((question, index) => {
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `<h3>Q${index + 1}: ${question.q}</h3>`;
+        question.options.forEach(option => {
+          const id = `q${index}_${option}`;
+          div.innerHTML += `
+            <label>
+              <input type="radio" name="q${index}" value="${option}">
+              ${option}
+            </label><br>`;
+        });
+        quizForm.appendChild(div);
+      });
+    }
+
+    function submitQuiz() {
+      const form = document.getElementById('quiz-form');
+      let score = 0;
+      let reportHTML = "";
+      const name = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      questions.forEach((question, index) => {
+        const selected = form.querySelector(`input[name="q${index}"]:checked`);
+        const userAnswer = selected ? selected.value : "No answer";
+        const correct = question.answer;
+        const resultClass = userAnswer === correct ? "correct" : "incorrect";
+        if (userAnswer === correct) score++;
+
+        reportHTML += `
+          <div class="${resultClass}">
+            <strong>Q${index + 1}:</strong> ${question.q}<br>
+            Your answer: ${userAnswer}<br>
+            Correct answer: ${correct}
+          </div><br>`;
+      });
+
+      reportHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Score:</strong> ${score} / ${questions.length}</p><hr>
+        ${reportHTML}
+      `;
+
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('result-container').classList.remove('hidden');
+      document.getElementById('report').innerHTML = reportHTML;
+    }
+  </script>
+
+</body>
+</html>
